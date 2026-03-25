@@ -39,6 +39,17 @@ class TestEndToEnd(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()["status"], "ok")
 
+    def test_history_endpoint(self):
+        requests.post(f"{BASE_URL}/add", json={"a": 1, "b": 2})
+        response = requests.get(f"{BASE_URL}/history")
+        self.assertEqual(response.status_code, 200)
+        history = response.json()
+        self.assertIsInstance(history, list)
+        self.assertGreater(len(history), 0)
+        last = history[-1]
+        self.assertIn("operation", last)
+        self.assertIn("result", last)
+
 
 if __name__ == "__main__":
     unittest.main()
