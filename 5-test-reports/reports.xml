@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="12" time="0.044" timestamp="2026-03-25T10:45:09.243484" hostname="RTRKN1241-LIN.domain.local"><testcase classname="test_math_operations.TestMathOperations" name="test_addition_fail" time="0.001"><failure message="AssertionError: 5 != 6">self = &lt;test_math_operations.TestMathOperations testMethod=test_addition_fail&gt;
+
+    def test_addition_fail(self):
+        # Intentionally failing: 2 + 3 should be 5, not 6
+&gt;       self.assertEqual(add(2, 3), 6)
+E       AssertionError: 5 != 6
+
+test_math_operations.py:30: AssertionError</failure></testcase><testcase classname="test_math_operations.TestMathOperations" name="test_addition_negative" time="0.000" /><testcase classname="test_math_operations.TestMathOperations" name="test_addition_positive" time="0.000" /><testcase classname="test_math_operations.TestMathOperations" name="test_complex_operation" time="0.000" /><testcase classname="test_math_operations.TestMathOperations" name="test_complex_operation_fail" time="0.001"><failure message="AssertionError: 11.0 != 12">self = &lt;test_math_operations.TestMathOperations testMethod=test_complex_operation_fail&gt;
+
+    def test_complex_operation_fail(self):
+        # Intentionally failing: expecting the result to be 12 instead of 11
+        result = add(multiply(2, 3), subtract(10, divide(20, 4)))
+&gt;       self.assertEqual(result, 12)
+E       AssertionError: 11.0 != 12
+
+test_math_operations.py:71: AssertionError</failure></testcase><testcase classname="test_math_operations.TestMathOperations" name="test_division" time="0.000" /><testcase classname="test_math_operations.TestMathOperations" name="test_division_exception" time="0.000" /><testcase classname="test_math_operations.TestMathOperations" name="test_division_fail" time="0.000" /><testcase classname="test_math_operations.TestMathOperations" name="test_multiplication" time="0.000" /><testcase classname="test_math_operations.TestMathOperations" name="test_multiplication_fail" time="0.001"><failure message="AssertionError: 12 != 11">self = &lt;test_math_operations.TestMathOperations testMethod=test_multiplication_fail&gt;
+
+    def test_multiplication_fail(self):
+        # Intentionally failing: 3 * 4 should be 12, not 11
+&gt;       self.assertEqual(multiply(3, 4), 11)
+E       AssertionError: 12 != 11
+
+test_math_operations.py:46: AssertionError</failure></testcase><testcase classname="test_math_operations.TestMathOperations" name="test_subtraction" time="0.001" /><testcase classname="test_math_operations.TestMathOperations" name="test_subtraction_fail" time="0.001"><failure message="AssertionError: 5 != 4">self = &lt;test_math_operations.TestMathOperations testMethod=test_subtraction_fail&gt;
+
+    def test_subtraction_fail(self):
+        # Intentionally failing: 10 - 5 should be 5, not 4
+&gt;       self.assertEqual(subtract(10, 5), 4)
+E       AssertionError: 5 != 4
+
+test_math_operations.py:38: AssertionError</failure></testcase></testsuite></testsuites>
