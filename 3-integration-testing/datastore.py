@@ -2,16 +2,19 @@ database = {}
 
 
 def store_value(key, value):
-    raise NotImplementedError("Implement store_value using TDD")
+    database[key] = value
 
 
 def get_value(key):
-    raise NotImplementedError("Implement get_value using TDD")
+    return database.get(key)
 
 
 def delete_value(key):
-    raise NotImplementedError("Implement delete_value using TDD")
+    if key not in database:
+        return False
+    del database[key]
+    return True
 
 
 def list_keys():
-    raise NotImplementedError("Implement list_keys using TDD")
+    return list(database.keys())
