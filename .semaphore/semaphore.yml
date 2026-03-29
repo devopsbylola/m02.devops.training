@@ -75,3 +75,15 @@ blocks:
             - pip install coverage
             - coverage run -m pytest test_calculator.py -v
             - coverage report -m
+  - name: Security tests
+    dependencies:
+      - Test coverage
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - cd 9-security-testing
+            - 'nohup python -c "import sys; sys.path.insert(0, ''../4-e2e''); from app import'
+            - app; app.run()" &
+            - sleep 3
+            - python -m pytest test_security.py -v
