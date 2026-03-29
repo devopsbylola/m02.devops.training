@@ -57,5 +57,4 @@ blocks:
           commands:
             - cd 4-e2e && nohup python app.py &
             - sleep 3
-            - cd ..
             - python -m pytest test_e2e.py -v
