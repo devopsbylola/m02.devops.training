@@ -58,3 +58,13 @@ blocks:
             - cd 4-e2e && pip install -r requirements.txt && nohup python app.py &
             - sleep 3
             - cd 4-e2e && python -m pytest test_e2e.py -v
+  - name: Test coverage
+    dependencies:
+      - End-to-end tests
+    task:
+      jobs:
+        - name: Tests
+          commands:
+            - cd 7-test-coverage
+            - coverage run -m pytest test_calculator.py -v
+            - coverage report -m
