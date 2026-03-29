@@ -55,6 +55,6 @@ blocks:
       jobs:
         - name: Tests
           commands:
-            - cd 4-e2e && nohup python app.py &
+            - cd 4-e2e && pip install -r requirements.txt && nohup python app.py &
             - sleep 3
             - cd 4-e2e && python -m pytest test_e2e.py -v
