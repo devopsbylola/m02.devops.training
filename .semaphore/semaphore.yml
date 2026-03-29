@@ -25,7 +25,9 @@ blocks:
       jobs:
         - name: Setup
           commands:
+            - cache restore
             - pip install pytest requests flask coverage locust
+            - cache store
   - name: Unit Tests
     dependencies:
       - Install Dependencies
@@ -33,6 +35,7 @@ blocks:
       jobs:
         - name: Tests
           commands:
+            - cache restore
             - cd 1-tdd && python -m pytest test_factorial.py -v
             - cd ..
             - cd 2-unit-testing && python -m pytest test_math_sum.py -v
@@ -43,6 +46,7 @@ blocks:
       jobs:
         - name: Tests
           commands:
+            - cache restore
             - cd 3-integration-testing && python -m pytest test_integration.py -v
             - cd ..
             - cd 6-mocking && python -m pytest test_weather_service.py -v
@@ -55,6 +59,7 @@ blocks:
       jobs:
         - name: Tests
           commands:
+            - cache restore
             - cd 4-e2e && pip install -r requirements.txt && nohup python app.py &
             - sleep 3
             - cd 4-e2e && python -m pytest test_e2e.py -v
@@ -65,6 +70,7 @@ blocks:
       jobs:
         - name: Tests
           commands:
+            - cache restore
             - cd 7-test-coverage
             - coverage run -m pytest test_calculator.py -v
             - coverage report -m
