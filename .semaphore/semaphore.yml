@@ -98,3 +98,9 @@ blocks:
             - pip install -r requirements.txt
             - pytest --junitxml=reports.xml
             - '[[ -f report.xml ]] && test-results publish report.xml'
+after_pipeline:
+  task:
+    jobs:
+      - name: 'Job #1'
+        commands:
+          - test-results gen-pipeline-report
