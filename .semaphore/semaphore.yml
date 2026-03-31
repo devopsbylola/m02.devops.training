@@ -86,8 +86,7 @@ blocks:
             - pip install -r requirements.txt
             - cd ..
             - cd 9-security-testing
-            - 'nohup python -c "import sys; sys.path.insert(0, ''''../4-e2e''''); from app import'''
-            - app; app.run()" &
+            - 'nohup python -c "import sys; sys.path.insert(0, ''../4-e2e''); from app import app; app.run()" &'
             - sleep 3
             - python -m pytest test_security.py -v
   - name: Test reports
