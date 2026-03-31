@@ -101,6 +101,6 @@ blocks:
 after_pipeline:
   task:
     jobs:
-      - name: 'Job #1'
+      - name: Test results
         commands:
           - test-results gen-pipeline-report
